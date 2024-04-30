@@ -33,14 +33,3 @@ const images = [
   },
 ];
 console.log('🚀 ~ images:', images);
-
-images.forEach(image => {
-  const li = document.createElement('li');
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-  li.appendChild(img);
-  fragmentEl.appendChild(li);
-});
-
-imagesEl.appendChild(fragmentEl);
