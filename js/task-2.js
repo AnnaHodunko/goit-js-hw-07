@@ -1,11 +1,5 @@
 'use strict';
 
-const imagesEl = document.querySelector('.gallery');
-console.log('🚀 ~ imagesEl:', imagesEl);
-
-const fragmentEl = document.createDocumentFragment();
-console.log('🚀 ~ fragmentEl:', fragmentEl);
-
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260',
@@ -32,4 +26,27 @@ const images = [
     alt: 'Lighthouse Coast Sea',
   },
 ];
-console.log('🚀 ~ images:', images);
+
+const galleryEl = document.querySelector('.gallery');
+
+const elements = images.map(({ url, alt }) => {
+  const itemEl = document.createElement('li');
+  itemEl.classList.add('gallery-item');
+  const imageEl = document.createElement('img');
+  imageEl.src = `${url}`;
+  imageEl.alt = `${alt}`;
+  itemEl.append(imageEl);
+  return itemEl;
+});
+
+console.log(elements);
+galleryEl.append(...elements);
+
+// const elements = images
+//   .map(image => {
+//     return `<li><img class="gallery-item" src="${image.url}" alt="${image.alt}"></li>`;
+//   })
+
+//   .join('');
+
+// galleryEl.insertAdjacentHTML('beforeend', elements);
